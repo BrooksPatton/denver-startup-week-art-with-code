@@ -21,18 +21,28 @@ void draw() {
 }
 
 void addToCircles() {
-  Circle circle = new Circle();
+  int toAdd = 100;
+  int attempts = 0;
+  int maxAttempts = 1000;
 
-  for (Circle otherCircle : circles) {
-    float dist = otherCircle.location.dist(circle.location);
-    if (dist <= otherCircle.radius) {
-      circle = null;
-      break;
+  while (attempts < maxAttempts && toAdd > 0) {
+    Circle circle = new Circle();
+
+    for (Circle otherCircle : circles) {
+      float dist = otherCircle.location.dist(circle.location);
+      if (dist <= otherCircle.radius) {
+        circle = null;
+        break;
+      }
     }
-  }
 
-  if (circle != null) {
-    circles.add(circle);
+    if (circle != null) {
+      circles.add(circle);
+      toAdd--;
+    }
+    else {
+     attempts++; 
+    }
   }
 }
 
