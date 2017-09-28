@@ -20,4 +20,8 @@ class Circle {
   void grow() {
    radius += growBy; 
   }
+  
+  boolean hittingEdge() {
+   return !(location.x - radius <= 0 || location.x + radius >= width || location.y - radius <= 0 || location.y + radius >= height); 
+  }
 }

@@ -7,6 +7,9 @@ void setup() {
 
 void draw() {
   background(0);
-  circle.grow();
+
+  if (circle.hittingEdge()) {
+    circle.grow();
+  }
   circle.display();
 }
