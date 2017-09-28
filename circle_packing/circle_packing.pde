@@ -12,13 +12,26 @@ void draw() {
 
   for (Circle circle : circles) {
     if (circle.hittingEdge()) {
-      circle.grow();
+      circle.growing = false;
     }
+
+    circle.grow();
     circle.display();
   }
 }
 
 void addToCircles() {
- Circle circle = new Circle();
- circles.add(circle);
+  Circle circle = new Circle();
+
+  for (Circle otherCircle : circles) {
+    float dist = otherCircle.location.dist(circle.location);
+    if (dist <= otherCircle.radius) {
+      circle = null;
+      break;
+    }
+  }
+
+  if (circle != null) {
+    circles.add(circle);
+  }
 }

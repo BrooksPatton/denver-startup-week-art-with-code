@@ -2,6 +2,7 @@ class Circle {
   PVector location;
   float radius;
   float growBy;
+  boolean growing;
 
   Circle() {
     float x = random(0, width);
@@ -9,6 +10,7 @@ class Circle {
     location = new PVector(x, y);
     radius = 1;
     growBy = 0.5;
+    growing = true;
   }
 
   void display() {
@@ -18,10 +20,12 @@ class Circle {
   }
 
   void grow() {
-    radius += growBy;
+    if (growing) {
+      radius += growBy;
+    }
   }
 
   boolean hittingEdge() {
-    return !(location.x - radius <= 0 || location.x + radius >= width || location.y - radius <= 0 || location.y + radius >= height);
+    return location.x - radius <= 0 || location.x + radius >= width || location.y - radius <= 0 || location.y + radius >= height;
   }
 }
