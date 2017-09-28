@@ -1,13 +1,17 @@
 class Emitter {
   PVector location;
-  Particle particle;
+  ArrayList<Particle> particles;
 
   Emitter() {
     location = new PVector(width / 2, height / 2);
-    particle = new Particle(location);
+    particles = new ArrayList<Particle>();
   }
 
   void run() {
-    particle.run();
+    particles.add(new Particle(location));
+
+    for (Particle p : particles) {
+      p.run();
+    }
   }
 }
