@@ -1,7 +1,12 @@
+Emitter emitter;
+
 void setup() {
- size(800, 800); 
+  size(800, 800);
+  emitter = new Emitter();
 }
 
 void draw() {
- background(0);
+  background(0);
+
+  emitter.run();
 }
