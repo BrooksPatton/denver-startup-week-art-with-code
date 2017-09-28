@@ -1,15 +1,24 @@
-Circle circle;
+ArrayList<Circle> circles;
 
 void setup() {
   size(800, 800);
-  circle = new Circle();
+  circles = new ArrayList<Circle>();
 }
 
 void draw() {
   background(0);
 
-  if (circle.hittingEdge()) {
-    circle.grow();
+  addToCircles();
+
+  for (Circle circle : circles) {
+    if (circle.hittingEdge()) {
+      circle.grow();
+    }
+    circle.display();
   }
-  circle.display();
+}
+
+void addToCircles() {
+ Circle circle = new Circle();
+ circles.add(circle);
 }

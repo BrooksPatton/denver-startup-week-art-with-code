@@ -16,12 +16,12 @@ class Circle {
     noFill();
     ellipse(location.x, location.y, radius * 2, radius * 2);
   }
-  
+
   void grow() {
-   radius += growBy; 
+    radius += growBy;
   }
-  
+
   boolean hittingEdge() {
-   return !(location.x - radius <= 0 || location.x + radius >= width || location.y - radius <= 0 || location.y + radius >= height); 
+    return !(location.x - radius <= 0 || location.x + radius >= width || location.y - radius <= 0 || location.y + radius >= height);
   }
 }
