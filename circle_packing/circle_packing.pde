@@ -1,8 +1,10 @@
 ArrayList<Circle> circles;
+PImage img;
 
 void setup() {
   size(800, 800);
   circles = new ArrayList<Circle>();
+  img = loadImage("Question_mark.png");
 }
 
 void draw() {
@@ -21,7 +23,7 @@ void draw() {
 }
 
 void addToCircles() {
-  int toAdd = 100;
+  int toAdd = 10;
   int attempts = 0;
   int maxAttempts = 1000;
 
@@ -37,11 +39,11 @@ void addToCircles() {
     }
 
     if (circle != null) {
+      circle.imgColor = img.get(int(circle.location.x), int(circle.location.y));
       circles.add(circle);
       toAdd--;
-    }
-    else {
-     attempts++; 
+    } else {
+      attempts++;
     }
   }
 }

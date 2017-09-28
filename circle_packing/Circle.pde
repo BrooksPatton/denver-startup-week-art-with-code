@@ -3,6 +3,7 @@ class Circle {
   float radius;
   float growBy;
   boolean growing;
+  color imgColor;
 
   Circle() {
     float x = random(0, width);
@@ -11,10 +12,11 @@ class Circle {
     radius = 1;
     growBy = 0.5;
     growing = true;
+    imgColor = null;
   }
 
   void display() {
-    stroke(255);
+    stroke(imgColor);
     noFill();
     ellipse(location.x, location.y, radius * 2, radius * 2);
   }
