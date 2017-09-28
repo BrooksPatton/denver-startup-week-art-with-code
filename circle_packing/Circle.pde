@@ -12,7 +12,6 @@ class Circle {
     radius = 1;
     growBy = 0.5;
     growing = true;
-    imgColor = null;
   }
 
   void display() {
